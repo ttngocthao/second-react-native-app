@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   headerText: {
-    color: "#4b4b4c"
+    color: "#4b4b4c",
+    fontSize: 20,
+    fontWeight: "bold",
+    paddingBottom: 10
   }
 });
