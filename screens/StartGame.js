@@ -11,6 +11,7 @@ import Colors from "../constants/colors";
 import MyButton from "../components/shared/MyButton";
 import Card from "../components/shared/Card";
 import Input from "../components/shared/Input";
+
 function StartGame({ startGameHandler }) {
   const [inputVal, setInputVal] = useState("");
   const [inputConfirmed, setInputConfirmed] = useState(false);
