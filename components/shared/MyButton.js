@@ -1,11 +1,15 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-
+import DefaultStyles from "../../constants/default-styles";
 function MyButton({ title, color, bkgColor, ...props }) {
   return (
     <TouchableOpacity {...props}>
       <View style={{ ...styles.button, backgroundColor: bkgColor }}>
-        <Text style={{ ...styles.btnText, color: color }}>{title}</Text>
+        <Text
+          style={{ ...styles.btnText, color: color, ...DefaultStyles.bodyText }}
+        >
+          {title}
+        </Text>
       </View>
     </TouchableOpacity>
   );

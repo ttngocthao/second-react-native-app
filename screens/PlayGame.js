@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
+import DefaultStyles from "../constants/default-styles";
 import MyButton from "../components/shared/MyButton";
 import Card from "../components/shared/Card";
 import Colors from "../constants/colors.js";
@@ -62,7 +63,14 @@ function PlayGame({ userChoice, gameOverHandler }) {
   return (
     <View style={{ flex: 1, alignItems: "center", marginVertical: 40 }}>
       <Card style={{ width: 350, alignItems: "center" }}>
-        <Text style={{ color: "#6E6E6DFF", fontSize: 16, textAlign: "center" }}>
+        <Text
+          style={{
+            color: "#6E6E6DFF",
+            fontSize: 16,
+            textAlign: "center",
+            ...DefaultStyles.bodyText
+          }}
+        >
           Is this your chosen number
         </Text>
         <NumDisplay>{guessNo}</NumDisplay>

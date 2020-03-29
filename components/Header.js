@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     color: "#4b4b4c",
     fontSize: 20,
     fontWeight: "bold",
-    paddingBottom: 10
+    paddingBottom: 10,
+    fontFamily: "bold-sand"
   }
 });

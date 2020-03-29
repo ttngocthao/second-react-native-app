@@ -119,7 +119,8 @@ const styles = StyleSheet.create({
   },
   textTitle1: {
     fontSize: 20,
-    paddingVertical: 20
+    paddingVertical: 20,
+    fontFamily: "bold-sand"
   },
 
   inputLabel: {
