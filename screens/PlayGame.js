@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, Text, StyleSheet, Alert } from "react-native";
+import { View, Text, StyleSheet, Alert, FlatList } from "react-native";
+
 import DefaultStyles from "../constants/default-styles";
 import MyButton from "../components/shared/MyButton";
 import Card from "../components/shared/Card";
@@ -21,13 +22,13 @@ function PlayGame({ userChoice, gameOverHandler }) {
   const [guessNo, setGuessNo] = useState(
     generateRandomBetween(1, 100, userChoice)
   );
-  const [rounds, setRounds] = useState(0);
+  const [rounds, setRounds] = useState([]);
   const currentMin = useRef(1);
   const currentMax = useRef(100);
 
   useEffect(() => {
     if (guessNo === userChoice) {
-      gameOverHandler(rounds);
+      gameOverHandler(rounds.length);
     }
   }, [guessNo, userChoice, gameOverHandler]);
 
@@ -57,7 +58,7 @@ function PlayGame({ userChoice, gameOverHandler }) {
     );
 
     setGuessNo(nextGuessNo);
-    setRounds(curRounds => curRounds + 1);
+    setRounds(curRounds => [guessNo, ...curRounds]);
   };
 
   return (
@@ -96,6 +97,16 @@ function PlayGame({ userChoice, gameOverHandler }) {
           />
         </View>
       </Card>
+      <View>
+        <FlatList
+          data={rounds}
+          renderItem={({ item }) => (
+            <View>
+              <Text>Previous guess:{item}</Text>
+            </View>
+          )}
+        />
+      </View>
     </View>
   );
 }

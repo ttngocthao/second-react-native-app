@@ -1,9 +1,13 @@
 import React from "react";
+import { AntDesign } from "@expo/vector-icons";
 import { View, Text, StyleSheet } from "react-native";
 function Header({ title }) {
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>{title}</Text>
+      <Text style={styles.headerText}>
+        <AntDesign name="home" size={32} color="black" />
+        <Text style={{ paddingLeft: 20 }}>{title}</Text>
+      </Text>
     </View>
   );
 }
