@@ -7,6 +7,8 @@ import Card from "../components/shared/Card";
 import Colors from "../constants/colors.js";
 import NumDisplay from "../components/shared/NumDisplay";
 
+import uuid from "react-native-uuid";
+
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.ceil(max);
@@ -97,12 +99,32 @@ function PlayGame({ userChoice, gameOverHandler }) {
           />
         </View>
       </Card>
-      <View>
+      <View style={{ marginTop: 20, width: "85%", flex: 1 }}>
         <FlatList
           data={rounds}
-          renderItem={({ item }) => (
-            <View>
-              <Text>Previous guess:{item}</Text>
+          keyExtractor={() => uuid.v4()}
+          renderItem={({ item, index }) => (
+            <View
+              style={{
+                padding: 10,
+                borderWidth: 1,
+                borderRadius: 5,
+                borderStyle: "dashed",
+                marginVertical: 5,
+                backgroundColor: "rgba(255,255,255,0.9)",
+                flex: 1
+              }}
+            >
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-evenly"
+                }}
+              >
+                <Text>#{rounds.length - index}</Text>
+                <Text>{item}</Text>
+              </View>
             </View>
           )}
         />
