@@ -34,11 +34,3 @@ const MealNavigator = createStackNavigator(
 );
 
 export default createAppContainer(MealNavigator);
-/*(
-        <LinearGradient
-          colors={["#0b0742", "#120c6e", "#5e72eb", "#ff9190", "#fdc094"]}
-          style={{ flex: 1 }}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-        />
-      ) */
